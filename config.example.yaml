@@ -1,0 +1,71 @@
+# Example Configuration File
+# Copy this to config.yaml and fill in your values
+
+gcp:
+  project_id: "your-project-id"
+  region: "us-central1"
+  credentials_path: "/path/to/service-account-key.json"
+
+vertex_ai:
+  model_name: "text-bison@002"
+  location: "us-central1"
+  temperature: 0.1
+  max_tokens: 256
+  endpoint_name: ""  # Leave empty to use base model
+
+classification:
+  confidence_threshold: 0.7
+  batch_size: 100
+  retry_attempts: 3
+  timeout_seconds: 300
+
+dataplex:
+  lake_id: "data-lake"
+  zone_id: "raw-zone"
+  catalog_enabled: true
+
+dataflow:
+  runner: "DataflowRunner"  # or "DirectRunner" for local testing
+  temp_location: "gs://your-bucket/temp"
+  staging_location: "gs://your-bucket/staging"
+  max_workers: 10
+  machine_type: "n1-standard-4"
+
+dlp:
+  kms_key_name: "projects/PROJECT/locations/LOCATION/keyRings/RING/cryptoKeys/KEY"
+  inspect_template_id: "pii-phi-template"
+  min_likelihood: "POSSIBLE"
+
+bigquery:
+  datasets:
+    metadata: "your-project.metadata"
+    raw_data: "your-project.raw_data"
+    masked_data: "your-project.masked_data"
+  
+  tables:
+    discovered_schemas: "metadata.discovered_schemas"
+    field_profiles: "metadata.field_profiles"
+    classifications: "metadata.classifications"
+    labeled_fields: "metadata.labeled_fields"
+
+training:
+  training_data_uri: "gs://your-bucket/training/train.jsonl"
+  validation_data_uri: "gs://your-bucket/training/val.jsonl"
+  train_steps: 100
+  learning_rate: 0.001
+  model_display_name: "pii-classifier-v1"
+
+monitoring:
+  enable_cloud_monitoring: true
+  alert_email: "alerts@example.com"
+  metrics_project: "your-project-id"
+  
+  thresholds:
+    accuracy: 0.90
+    latency_ms: 1000
+    error_rate: 0.01
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/pii-classifier.log"
