@@ -36,7 +36,6 @@ Cloud Storage   Apache Beam            PaLM 2           Dataflow     BigQuery/GC
 ### AI Classification
 - **HSPII**: SSN, credit cards, biometric data
 - **PII**: Names, emails, phone numbers, addresses
-- **PHI**: Medical records, diagnoses, prescriptions
 - **NON_SENSITIVE**: Other business data
 
 ### Data Masking
@@ -202,49 +201,6 @@ dlp:
   kms_key_name: projects/PROJECT/locations/LOCATION/keyRings/RING/cryptoKeys/KEY
 ```
 
-## Project Structure
-
-```
-pii-phi-classifier/
-├── src/
-│   ├── discovery/          # Schema discovery modules
-│   │   ├── __init__.py
-│   │   └── schema_discovery.py
-│   ├── profiling/          # Field profiling
-│   │   ├── __init__.py
-│   │   ├── field_profiler.py
-│   │   └── run_profiling.py
-│   ├── classification/     # AI classification
-│   │   ├── __init__.py
-│   │   └── palm2_classifier.py
-│   ├── training/           # Model training
-│   │   ├── __init__.py
-│   │   ├── training_data.py
-│   │   └── fine_tuning.py
-│   ├── masking/           # Data masking
-│   │   ├── __init__.py
-│   │   ├── dlp_masking.py
-│   │   └── dataflow_masking.py
-│   └── utils/             # Utilities
-│       ├── __init__.py
-│       └── config_loader.py
-├── tests/                 # Unit tests
-├── config/                # Configuration files
-│   ├── config.yaml
-│   └── config.example.yaml
-├── docs/                  # Documentation
-├── requirements.txt
-├── setup.py
-├── .gitignore
-└── README.md
-```
-
-## Performance Metrics
-
-- **Accuracy**: >95% on validation dataset
-- **Latency**: <500ms per field classification
-- **Throughput**: 100K+ events/sec for streaming masking
-- **Manual Effort Reduction**: 80%
 
 ## Development
 
@@ -315,16 +271,6 @@ View metrics in Cloud Console or set up alerts.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-- 📧 Email: data-governance@example.com
-- 💬 Slack: #pii-phi-classifier
-- 📚 Documentation: [Link to full docs]
-- 🐛 Issues: [GitHub Issues](https://github.com/your-org/pii-phi-classifier/issues)
 
 ## References
 
