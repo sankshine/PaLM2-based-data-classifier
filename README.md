@@ -1,15 +1,15 @@
 # PII/PHI Classification System
 
-Automated data classification system using Vertex AI and PaLM 2 to identify and mask sensitive data (PII/PHI/HSPII) in Google Cloud Platform.
+Automated data classification system using Vertex AI and PaLM 2 to identify and mask sensitive data (PII/HSPII) in Google Cloud Platform.
 
 ## Overview
 
 This system reduces manual data governance effort by 80% through:
-- 🔍 Automated schema discovery across BigQuery, Cloud Storage, and Pub/Sub
-- 📊 Statistical field profiling and pattern detection
-- 🤖 AI-powered classification using fine-tuned PaLM 2 (>95% accuracy)
-- 🔒 Automatic DLP policy generation and data masking
-- 📈 Real-time monitoring and compliance reporting
+- Automated schema discovery across BigQuery, Cloud Storage, and Pub/Sub
+- Statistical field profiling and pattern detection
+- AI-powered classification using fine-tuned PaLM 2 (>95% accuracy)
+- Automatic DLP policy generation and data masking
+- Real-time monitoring and compliance reporting
 
 ## Architecture
 
@@ -41,7 +41,6 @@ Cloud Storage   Apache Beam            PaLM 2           Dataflow     BigQuery/GC
 ### Data Masking
 - Crypto-hash for HSPII
 - Format-preserving encryption for PII
-- Date-shifting for PHI
 - Real-time streaming and batch support
 
 ## Installation
@@ -210,18 +209,6 @@ dlp:
 pytest tests/
 ```
 
-### Code Quality
-
-```bash
-# Linting
-pylint src/
-
-# Type checking
-mypy src/
-
-# Format code
-black src/
-```
 
 ## Monitoring
 
