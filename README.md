@@ -1,4 +1,4 @@
-# PII/PHI Classification System
+# PII/HSPII Classification System
 
 Automated data classification system using Vertex AI and PaLM 2 to identify and mask sensitive data (PII/HSPII) in Google Cloud Platform.
 
